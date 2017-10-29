@@ -1,7 +1,27 @@
 import React from 'react';
+import GroceryItem from './GroceryItem.jsx'
 
-const GroceryList = (props) => (
-  <div className="groceries"></div>
-)
+class GroceryList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+
+    }
+    this.listItems = props.list.map((item) =>
+      <GroceryItem item={item}/>
+    );
+    
+  }
+
+
+  render () {
+    return (
+      <div className="groceries">
+      {this.listItems}
+      </div>
+      
+    );
+  }
+}
 
 export default GroceryList;
