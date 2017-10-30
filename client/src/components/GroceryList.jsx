@@ -7,17 +7,15 @@ class GroceryList extends React.Component {
     this.state = {
 
     }
-    this.listItems = props.list.map((item) =>
-      <GroceryItem item={item}/>
-    );
-    
   }
 
-
   render () {
+    var listItems = this.props.list.map((item) =>
+      <GroceryItem item={item}/>
+    );
     return (
       <div className="groceries">
-      {this.listItems}
+        {listItems}
       </div>
       
     );

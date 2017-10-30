@@ -14,17 +14,26 @@ class App extends React.Component {
         {id: 4, quantity: 1, description: "iced coffee"}
       ]
     }
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit() {
-    alert('submit!');
+  handleSubmit(description, quantity) {
+    // alert(`description: ${description} quantity: ${quantity}`)
+    // debugger
+    var item = {id: this.state.list.length + 1, description: description, quantity: quantity};
+    var newList = this.state.list.slice();
+    newList.push(item);
+    this.setState({list: newList})
+    
   }
 
   
   render () {
     return (
       <div>
-        <AddGrocery handleSubmit={this.handleSubmit} />
+        <AddGrocery 
+          handleSubmit={this.handleSubmit} 
+        />
         <GroceryList list={this.state.list} />
 
       </div>
